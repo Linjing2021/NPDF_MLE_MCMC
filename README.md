@@ -1,22 +1,83 @@
-README
+# NPDFfit_MLE_MCMC
 
-This repository implements an unbinned maximum-likelihood framework for fitting column-density probability distribution functions (N-PDFs). The method operates directly on pixel-level column-density values without binning, and uses MCMC sampling to infer model parameters and uncertainties.
+A Python package for fitting molecular cloud column density probability distribution functions (N-PDFs) using an **unbinned maximum-likelihood estimator (MLE)** and **Markov Chain Monte Carlo (MCMC)** sampling.
 
+This code accompanies:
 
-> step 1: collect all NH2 file in a directory ("./NH2/" in this example), assign this path to the variable “NH2path”. each NH2 file name should start with "sourcename_", e.g. "SgrB2m_NH2.fits".
->
-> step 2: run cell 4 with fit == False, have a look at N-PDFs of each cloud firstly.
-> 
-> step 3: set up fitting parameters in "NPDF_MLE_para.xlsx", the "source" column should match the sourcename in the NH2 file. N0_fit, N1_fit are the choosed fitting range in log10(NH2). Ncutoff gives the lowest threshold to show the N-PDF. xlim, ylim are used to control the show of the N-PDF if specified. If you want to limit the fitting process, tp0 gives the center point of the transition point limitation, tp1 gives the half width of the limitation interval.
-> 
-> step 4: run ! (sampling, run !)
+> Feng et al., *Trace the Self-Gravitating Gas Using CO Isotopologues*, ApJ (2026).
 
-notes:
-1. If you meet the error "The chain is shorter than 50 times the integrated autocorrelation time ...", run more step in mcmc.
-2. If you only want to fit a powerlaw tail, change to model = "PL", and write the Nthres in "Nthres_fit_MLE_para.xlsx" manually.
-3. Set model = "LN" for only lognormal fit.
-4. If you want to re-run any source, delete the corresponding ".npy" file in ./MCMCpara/ and run the fitting cell again.
+---
 
+## Features
 
-N-PDF fitting code (MLE + MCMC) by Linjing Feng. Last updated: 2025.12.22.
-Thanks to Yaojun Xiao for help with code testing and improvements.
+- Unbinned MLE fitting of N-PDFs
+- Support for Lognormal (LN), Power-law (PL), and Lognormal + Power-law (LNPL) models
+- Bayesian parameter estimation with MCMC
+- Automatic uncertainty estimation
+- Publication-quality figures
+
+---
+
+## Repository Structure
+
+```
+NPDF_MLE_func.py      Core fitting functions
+NPDF_fit_plot.ipynb   Example notebook
+NPDF_MLE_para.xlsx    Input parameter table
+NH2/                  Input column-density maps
+NPDF/                 Output figures
+MCMCpara/             Best-fit parameters
+MCMCsamples/          MCMC chains
+```
+
+---
+
+## Requirements
+
+Python 3.9 or later.
+
+Required packages:
+
+```
+numpy
+scipy
+matplotlib
+pandas
+astropy
+emcee
+corner
+openpyxl
+```
+
+---
+
+## Usage
+
+1. Place the input NH$_2$ FITS files in the `NH2/` directory.
+2. Edit the fitting parameters in `NPDF_MLE_para.xlsx`.
+3. Open and run `NPDF_fit_plot.ipynb`.
+
+The notebook performs the MLE fitting, runs the MCMC sampling, and automatically saves the best-fit parameters, posterior samples, and figures.
+
+---
+
+## License
+
+This project is released under the **MIT License**.
+See the `LICENSE` file for details.
+
+---
+
+## Citation
+
+If you use this software, please cite:
+> Feng et al., *Trace the Self-Gravitating Gas Using CO Isotopologues*, ApJ (2026).
+Zenodo DOI TBD.
+
+---
+
+## Contact
+
+Linjing Feng,
+National Astronomical Observatories, Chinese Academy of Sciences
+Email: ljfeng@nao.cas.cn
