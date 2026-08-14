@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+
+title: "N-PDF Fit: Unbinned Maximum-Likelihood and MCMC Fitting Tools"
+type: pychon script
+version: "1.0"
+
+authors:
+  - family-names: "Feng"
+    given-names: "Linjing"
+    email: "linjingfeng2021@gmail.com"
+
+abstract: >-
+  Python tools for fitting molecular-cloud column-density probability
+  distribution functions (N-PDFs) using unbinned maximum-likelihood
+  estimation and Markov Chain Monte Carlo sampling. The software supports
+  lognormal, power-law, and combined lognormal-plus-power-law models.
+
+keywords:
+  - astronomy
+  - molecular clouds
+  - column density probability distribution function
+  - maximum-likelihood estimation
+  - Markov Chain Monte Carlo
+
+license: MIT
