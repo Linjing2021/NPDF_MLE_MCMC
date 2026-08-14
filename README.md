@@ -53,7 +53,7 @@ openpyxl
 
 ## Usage
 
-1. Place the input NH$_2$ FITS files in the `NH2/` directory.
+1. Place the input NH2 FITS files in the `NH2/` directory.
 2. Edit the fitting parameters in `NPDF_MLE_para.xlsx`.
 3. Open and run `NPDF_fit_plot.ipynb`.
 
